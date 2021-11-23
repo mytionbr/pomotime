@@ -75,7 +75,7 @@ export  const tasksData ={
             description: 'Atividades referentes ao meu trabalho',
             id: '1',
             label: '30 min',
-            laneId: 'SORTED_LANE',
+            laneId: 'lane1',
             escalationStyle:escalationText,
             metadata: {
               completedAt: '2017-12-01T10:00:00Z',
@@ -100,21 +100,22 @@ export  const tasksData ={
         id: 'lane2',
         title: 'Fazer',
         style: laneNext,  // Style of Lane
-        
         labelStyle: labelStyle,
         titleStyle: titleStyle,
         currentPage: 1,
           cards: [
             {
-              description: '2 Gallons of milk at the Deli store',
-              id: 'Card1',
-              label: '2017-12-01',
-              laneId: 'SORTED_LANE',
+              description: 'minhas aulas de 2° feira',
+              id: '2',
+              label: '1 hora',
+              laneId: 'lane2',
               metadata: {
                 completedAt: '2017-12-01T10:00:00Z',
                 shortCode: 'abc'
               },
-              title: 'Buy milk'
+              title: 'Aulas de piano',
+              tasksTotal: 3,
+              tasksDone: 0,
             },
           ],
         },
@@ -128,15 +129,17 @@ export  const tasksData ={
           currentPage: 1,
             cards: [
               {
-                description: '2 Gallons of milk at the Deli store',
-                id: 'Card1',
-                label: '2017-12-01',
-                laneId: 'SORTED_LANE',
+                description: 'tarefas para a próxima aula',
+                id: '3',
+                label: '50 min',
+                laneId: 'lane3',
                 metadata: {
                   completedAt: '2017-12-01T10:00:00Z',
                   shortCode: 'abc'
                 },
-                title: 'Buy milk'
+                title: 'Espanhol',
+                tasksTotal: 4,
+                tasksDone: 2,
               },
             ],
           },
@@ -144,21 +147,22 @@ export  const tasksData ={
             id: 'lane4',
             title: 'Ideias',
             style: laneIdeas,  // Style of Lane
-            
             labelStyle: labelStyle,
             titleStyle: titleStyle,
             currentPage: 1,
               cards: [
                 {
-                  description: '2 Gallons of milk at the Deli store',
+                  description: 'procurar um novo curso para o próximo ano',
                   id: 'Card1',
-                  label: '2017-12-01',
-                  laneId: 'SORTED_LANE',
+                  label: '20 min',
+                  laneId: 'lane4',
                   metadata: {
                     completedAt: '2017-12-01T10:00:00Z',
                     shortCode: 'abc'
                   },
-                  title: 'Buy milk'
+                  title: 'Buscar uma nova faculdade',
+                  tasksTotal: 1,
+                  tasksDone: 0,
                 },
               ],
             }
