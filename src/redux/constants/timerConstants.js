@@ -1,0 +1,5 @@
+export const TIMER_SETUP = 'TIMER_SETUP';
+export const TIMER_START = 'TIMER_START';
+export const TIMER_PAUSE = 'TIMER_PAUSE';
+export const TIMER_RESTART = 'TIMER_RESTART';
+export const TIMER_END_OF_SESSION = 'TIMER_END_OF_SESSION';
