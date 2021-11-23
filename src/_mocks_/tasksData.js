@@ -72,7 +72,7 @@ export  const tasksData ={
       currentPage: 1,
         cards: [
           {
-            description: 'Atividades referentes ao meu trabalho',
+            description: 'Relatórios e features',
             id: '1',
             label: '30 min',
             laneId: 'lane1',

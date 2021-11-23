@@ -13,6 +13,9 @@ export default function Router() {
               { element: <Navigate to="/dashboard/app" replace /> },
               { path: 'app', element: <DashboardApp /> },
               { path: 'tasks', element: <TasksBoard /> },
+              { path: 'statistics',element:  <Navigate to="/dashboard/app"/>},
+              { path: 'settings',element:  <Navigate to="/dashboard/app" /> },
+              { path: 'profile',element:  <Navigate to="/dashboard/app" /> },
             ]
           },
           {

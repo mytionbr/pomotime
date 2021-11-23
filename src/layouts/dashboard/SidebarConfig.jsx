@@ -22,17 +22,17 @@ const sidebarConfig = [
   },
   {
     title: 'Estatísticas',
-    path: '/dashboard/user',
+    path: '/dashboard/statistics',
     icon: getIcon(pieChart2Fill)
   },
   {
     title: 'Configurações',
-    path: '/dashboard/user',
+    path: '/dashboard/settings',
     icon: getIcon(settings2Fill)
   },
   {
     title: 'Perfil',
-    path: '/dashboard/user',
+    path: '/dashboard/profile',
     icon: getIcon(personFill)
   },
   
