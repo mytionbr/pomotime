@@ -17,10 +17,8 @@ export default function Router() {
           },
           {
             path: '/',
-            element: <DashboardLayout />,
-            children:[
-                {path: '/', element: <Navigate to="/" />}
-            ]  
+            element: <Navigate to="/dashboard/app" />
+   
           }
         ]);
 }
