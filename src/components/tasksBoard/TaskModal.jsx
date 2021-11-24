@@ -12,6 +12,7 @@ const CardModal = styled(Card)(({theme}) => ({
     borderRadius: theme.shape.borderRadiusSm,
     width: theme.breakpoints.values.sm,
     overflowY: 'auto',
+    padding: '10px 0'
   }));
 
   
@@ -29,13 +30,10 @@ export default function TaskModal({card,handleAddTask,handleClose,handleChangeTi
   const {title,description} = card
   const prevCard = usePrevious({cardId: card.id})
 
-  console.log(prevCard)
   React.useEffect(()=>{
     if(card &&  card.tasks && card.tasks.length >0){
-      console.log('opa')
       setTasks([...card.tasks])
     }else if(prevCard && prevCard.cardId !== card.id  ){
-      console.log('eita')
       setTasks([...card.tasks])
     }
   },[card])

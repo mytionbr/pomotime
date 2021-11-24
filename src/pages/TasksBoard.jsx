@@ -33,11 +33,10 @@ export default function TasksBoard() {
   const [open, setOpen] = React.useState(false);
   const [currentCard, setCurrentCard] = React.useState({tasks: [], title: ''});
   
-  const [datas, setDatas] = React.useState(tasksData);
-
+  const [data, setData] = React.useState(tasksData);
 
   const handleChangeCard =  (newCard)=>{
-     let newLanes = tasksData.lanes.map((lane=>{
+     let newLanes = data.lanes.map((lane=>{
        lane.cards = lane.cards.map(card=>{ 
         if(card.id === newCard.id){
           return newCard
@@ -52,7 +51,7 @@ export default function TasksBoard() {
       lanes: newLanes
       
     }
-    setDatas(newTasksData);
+    setData(newTasksData);
   }
 
 
@@ -91,6 +90,11 @@ export default function TasksBoard() {
     setOpen(!open);
   };
 
+  const onDataChange =(newData)=>{
+    console.log(newData)
+    setData(newData)
+  }
+
   const handleCardClick = async (cardId)=>{
     let card; 
    await tasksData.lanes.forEach((lane=>{
@@ -100,6 +104,7 @@ export default function TasksBoard() {
       }
     }))
     setCurrentCard(card);
+    console.log(card)
     handleToggle()
   }
 
@@ -112,7 +117,7 @@ export default function TasksBoard() {
         <Grid container sx={{ pt: 5 }} spacing={3}>
           <Board 
             draggable={true}
-            data={datas}
+            data={data}
             editable={true}
             style={styles}
             components={{
@@ -120,6 +125,7 @@ export default function TasksBoard() {
               Card: CustomCard 
             }}
             onCardClick={cardId => handleCardClick(cardId)}
+            onDataChange={onDataChange}
            
             />
         </Grid>
