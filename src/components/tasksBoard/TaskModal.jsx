@@ -33,8 +33,10 @@ export default function TaskModal({card,handleAddTask,handleClose,handleChangeTi
   React.useEffect(()=>{
     if(card &&  card.tasks && card.tasks.length >0){
       setTasks([...card.tasks])
-    }else if(prevCard && prevCard.cardId !== card.id  ){
+    }else if(card && card.tasks && prevCard && prevCard.cardId !== card.id  ){
       setTasks([...card.tasks])
+    }else {
+      setTasks([])
     }
   },[card])
 

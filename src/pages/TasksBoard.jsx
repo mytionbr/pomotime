@@ -63,6 +63,11 @@ export default function TasksBoard() {
     handleChangeCard(cardChanged);    
   }
 
+  const onCardAdd = (card, laneId)=>{
+    console.log(card)
+    card.title = 'esú'
+  }
+
   const handleChangeTitle = (newTitle)=>{
     const cardChanged = {
       ...currentCard,
@@ -72,7 +77,7 @@ export default function TasksBoard() {
   }
 
   const handleAddTask = (newTask)=>{
-    let tasks = currentCard.tasks
+    let tasks = currentCard.tasks ? currentCard.tasks : []
     tasks.push(newTask) 
     const cardChanged = {
       ...currentCard,
@@ -91,20 +96,20 @@ export default function TasksBoard() {
   };
 
   const onDataChange =(newData)=>{
-    console.log(newData)
     setData(newData)
   }
 
   const handleCardClick = async (cardId)=>{
+    console.log(cardId)
     let card; 
-   await tasksData.lanes.forEach((lane=>{
-      let aux =  lane.cards.find(card=> card.id === String(cardId))
+   await data.lanes.forEach((lane=>{
+      let aux =  lane.cards.find(card=> String(card.id) === String(cardId))
       if(aux){
         card = aux
       }
     }))
-    setCurrentCard(card);
     console.log(card)
+    setCurrentCard(card);
     handleToggle()
   }
 
@@ -126,7 +131,7 @@ export default function TasksBoard() {
             }}
             onCardClick={cardId => handleCardClick(cardId)}
             onDataChange={onDataChange}
-           
+            onCardAdd={onCardAdd}
             />
         </Grid>
         <TaskModal 
