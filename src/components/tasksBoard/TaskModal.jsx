@@ -10,13 +10,42 @@ import TitleForm from './TitleForm';
 const CardModal = styled(Card)(({theme}) => ({
     fontSize: 12,
     borderRadius: theme.shape.borderRadiusSm,
-    width: theme.breakpoints.values.sm
+    width: theme.breakpoints.values.sm,
+    overflowY: 'auto',
   }));
 
+  
+  function usePrevious(value) {
+    const ref = React.useRef();
+    React.useEffect(() => {
+      ref.current = value;
+    });
+    return ref.current;
+  }
 
-export default function TaskModal({card,handleClose,handleChangeTitle,handleChangeDescription,handleToggle,open}) {
-    
-    const {tasks, title,description} = card
+export default function TaskModal({card,handleAddTask,handleClose,handleChangeTitle,handleChangeDescription,handleToggle,open}) {
+  
+  const [tasks, setTasks] = React.useState([])
+  const {title,description} = card
+  const prevCard = usePrevious({cardId: card.id})
+
+  console.log(prevCard)
+  React.useEffect(()=>{
+    if(card &&  card.tasks && card.tasks.length >0){
+      console.log('opa')
+      setTasks([...card.tasks])
+    }else if(prevCard && prevCard.cardId !== card.id  ){
+      console.log('eita')
+      setTasks([...card.tasks])
+    }
+  },[card])
+
+  const handleChangeTask = (task)=>{
+    let newTasks = tasks
+    newTasks.push(task)
+    setTasks([...newTasks]);
+    handleAddTask(task);
+  }    
     
     return (
         <Dialog 
@@ -32,7 +61,7 @@ export default function TaskModal({card,handleClose,handleChangeTitle,handleChan
                   />
                 
                 <Box sx={{ mt: 4}} />
-                  <TasksForm />
+                  <TasksForm handleAddTask={handleChangeTask}/>
                   <TasksTodoList tasks={tasks} />
             </CardModal>
         </Dialog >

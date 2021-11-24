@@ -116,6 +116,7 @@ export  const tasksData ={
               title: 'Aulas de piano',
               tasksTotal: 3,
               tasksDone: 0,
+              tasks:[]
             },
           ],
         },
@@ -140,6 +141,7 @@ export  const tasksData ={
                 title: 'Espanhol',
                 tasksTotal: 4,
                 tasksDone: 2,
+                tasks:[]
               },
             ],
           },
@@ -163,6 +165,7 @@ export  const tasksData ={
                   title: 'Buscar uma nova faculdade',
                   tasksTotal: 1,
                   tasksDone: 0,
+                  tasks:[]
                 },
               ],
             }

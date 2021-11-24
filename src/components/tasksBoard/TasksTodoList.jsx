@@ -10,6 +10,8 @@ import React from "react";
 
 function TaskItem({ task, checked, formik, ...other }) {
   const { getFieldProps } = formik;
+  const {name, id} = task
+  
 
   return (
     <Stack direction="row" justifyContent="space-between" sx={{ py: 0.75 }}>
@@ -17,7 +19,7 @@ function TaskItem({ task, checked, formik, ...other }) {
         control={
           <Checkbox
             {...getFieldProps("checked")}
-            value={task}
+            value={id}
             checked={checked}
             {...other}
           />
@@ -32,7 +34,7 @@ function TaskItem({ task, checked, formik, ...other }) {
               }),
             }}
           >
-            {task}
+            {name}
           </Typography>
         }
       />
@@ -41,9 +43,10 @@ function TaskItem({ task, checked, formik, ...other }) {
 }
 
 export default function TasksTodoList({ tasks }) {
+  const tasksChecked = tasks ? tasks.filter(task => task.done) : []
   const formik = useFormik({
     initialValues: {
-      checked: ["1"],
+      checked: [...tasksChecked]
     },
     onSubmit: (values) => {
       console.log(values);
@@ -51,7 +54,6 @@ export default function TasksTodoList({ tasks }) {
   });
 
   const { values, handleSubmit } = formik;
-
   return (
     <Box sx={{ px: 3, py: 1 }}>
       <FormikProvider value={formik}>
@@ -60,9 +62,9 @@ export default function TasksTodoList({ tasks }) {
             tasks.map((task) => (
               <TaskItem
                 key={String(task.id)}
-                task={task.name}
+                task={task}
                 formik={formik}
-                checked={values.checked.includes(task.done)}
+                checked={values.checked.includes(task.id)}
               />
             ))}
         </Form>

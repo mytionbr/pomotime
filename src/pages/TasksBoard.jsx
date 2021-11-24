@@ -34,10 +34,7 @@ export default function TasksBoard() {
   const [currentCard, setCurrentCard] = React.useState({tasks: [], title: ''});
   
   const [datas, setDatas] = React.useState(tasksData);
-  
-  const handleChangeData = (change)=>{
-   console.log('handleChangeData')
-  }
+
 
   const handleChangeCard =  (newCard)=>{
      let newLanes = tasksData.lanes.map((lane=>{
@@ -48,7 +45,6 @@ export default function TasksBoard() {
           return card
         }
       })
-      console.log(lane)
       return lane
     }))
     const newTasksData = {
@@ -75,6 +71,17 @@ export default function TasksBoard() {
     }
     handleChangeCard(cardChanged);   
   }
+
+  const handleAddTask = (newTask)=>{
+    let tasks = currentCard.tasks
+    tasks.push(newTask) 
+    const cardChanged = {
+      ...currentCard,
+      tasks: [...tasks],
+    }
+    handleChangeCard(cardChanged);   
+  }
+
 
   const handleClose = () => {
     setOpen(false);
@@ -122,7 +129,8 @@ export default function TasksBoard() {
           open={open}
           card={currentCard}
           handleChangeDescription={handleChangeDescription}
-          handleChangeTitle={handleChangeTitle}/>
+          handleChangeTitle={handleChangeTitle}
+          handleAddTask={handleAddTask}/>
       </Container>
     </Page>
   );

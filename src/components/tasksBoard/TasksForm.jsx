@@ -24,21 +24,43 @@ const RootStyle = styled(Toolbar)(({ theme }) => ({
     },
   }));
 
-  const ButtonStyled = styled(IconButton)(({ theme }) => ({
+  const ButtonSave = styled(IconButton)(({ theme }) => ({
     fontSize: "3rem",
     borderRadius: theme.shape.borderRadiusMd,
     color: theme.palette.primary.main
   }));
 
-export default function TasksForm() {
+export default function TasksForm({handleAddTask}) {
+    const [value, setValue] = React.useState('')  
+
+    const handleSave = ()=>{
+      handleAddTask({
+        id: String(Math.floor(Math.random() * 1000)),
+        name: value,
+        tempo: 240,
+        sessionsTotal: 10,
+        done: false
+      })
+      setValue('')
+    } 
+    
+    const handleChangeText = (event)=>{
+      const {value} = event.target 
+      setValue(value)
+    }
+
     return (
         <RootStyle>
             <InputStyle
                 placeholder='Digite uma tarefa'
+                value={value}
+                onChange={handleChangeText}
             />
-           <ButtonStyled>
+           <ButtonSave
+            onClick={handleSave}
+           >
             <Icon icon={plusFill} />
-           </ButtonStyled>
+           </ButtonSave>
         </RootStyle>
     )
 }
