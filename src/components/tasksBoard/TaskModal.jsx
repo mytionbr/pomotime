@@ -5,6 +5,7 @@ import { Form, FormikProvider, useFormik } from 'formik';
 import DescriptionForm from './DescriptionForm';
 import TasksForm from './TasksForm';
 import TasksTodoList from './TasksTodoList';
+import TitleForm from './TitleForm';
 
 const CardModal = styled(Card)(({theme}) => ({
     fontSize: 12,
@@ -13,7 +14,7 @@ const CardModal = styled(Card)(({theme}) => ({
   }));
 
 
-export default function TaskModal({card,handleClose,handleChangeDescription,handleToggle,open}) {
+export default function TaskModal({card,handleClose,handleChangeTitle,handleChangeDescription,handleToggle,open}) {
     
     const {tasks, title,description} = card
     
@@ -24,9 +25,7 @@ export default function TaskModal({card,handleClose,handleChangeDescription,hand
             onClose={handleClose}
       >
             <CardModal>
-                <CardHeader 
-                    title={title}
-                />
+               <TitleForm title={title} handleChangeTitle={handleChangeTitle} />
                 <DescriptionForm
                     description={description}
                     handleChangeDescription={handleChangeDescription}

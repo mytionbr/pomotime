@@ -40,7 +40,6 @@ export default function TasksBoard() {
   }
 
   const handleChangeCard =  (newCard)=>{
-
      let newLanes = tasksData.lanes.map((lane=>{
        lane.cards = lane.cards.map(card=>{ 
         if(card.id === newCard.id){
@@ -57,17 +56,24 @@ export default function TasksBoard() {
       lanes: newLanes
       
     }
-  
     setDatas(newTasksData);
   }
+
+
   const handleChangeDescription = (newDescription)=>{
     const cardChanged = {
       ...currentCard,
       description: newDescription,
-      
     }
-  
     handleChangeCard(cardChanged);    
+  }
+
+  const handleChangeTitle = (newTitle)=>{
+    const cardChanged = {
+      ...currentCard,
+      title: newTitle,
+    }
+    handleChangeCard(cardChanged);   
   }
 
   const handleClose = () => {
@@ -115,7 +121,8 @@ export default function TasksBoard() {
           handleToggle={handleToggle}
           open={open}
           card={currentCard}
-          handleChangeDescription={handleChangeDescription}/>
+          handleChangeDescription={handleChangeDescription}
+          handleChangeTitle={handleChangeTitle}/>
       </Container>
     </Page>
   );
