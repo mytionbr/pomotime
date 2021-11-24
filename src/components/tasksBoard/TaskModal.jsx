@@ -2,6 +2,9 @@ import { Backdrop, Card, CardContent, CardHeader, Checkbox, Dialog, FormControlL
 import { Box, styled } from '@mui/system';
 import React from 'react'
 import { Form, FormikProvider, useFormik } from 'formik';
+import DescriptionForm from './DescriptionForm';
+import TasksForm from './TasksForm';
+import TasksTodoList from './TasksTodoList';
 
 const CardModal = styled(Card)(({theme}) => ({
     fontSize: 12,
@@ -9,47 +12,10 @@ const CardModal = styled(Card)(({theme}) => ({
     width: theme.breakpoints.values.sm
   }));
 
-  function TaskItem({ task, checked, formik, ...other }) {
-    const { getFieldProps } = formik;
-  
-    return (
-      <Stack direction="row" justifyContent="space-between" sx={{ py: 0.75 }}>
-        <FormControlLabel
-          control={
-            <Checkbox {...getFieldProps('checked')} value={task} checked={checked} {...other} />
-          }
-          label={
-            <Typography
-              variant="body2"
-              sx={{
-                ...(checked && {
-                  color: 'text.disabled',
-                  textDecoration: 'line-through'
-                })
-              }}
-            >
-              {task}
-            </Typography>
-          }
-        />
-      </Stack>
-    );
-  }
 
-export default function TaskModal({card,handleClose,handleToggle,open}) {
+export default function TaskModal({card,handleClose,handleChangeDescription,handleToggle,open}) {
     
-    const {tasks, title} = card
-
-    const formik = useFormik({
-        initialValues: {
-          checked: ['1']
-        },
-        onSubmit: (values) => {
-          console.log(values);
-        }
-      });
-    
-      const { values, handleSubmit } = formik;
+    const {tasks, title,description} = card
     
     return (
         <Dialog 
@@ -61,20 +27,14 @@ export default function TaskModal({card,handleClose,handleToggle,open}) {
                 <CardHeader 
                     title={title}
                 />
-                <Box sx={{ px: 3, py: 1 }}>
-                <FormikProvider value={formik}>
-          <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
-            {tasks && tasks.map((task) => (
-              <TaskItem
-                key={String(task.id)}
-                task={task.name}
-                formik={formik}
-                checked={values.checked.includes(task.done)}
-              />
-            ))}
-          </Form>
-        </FormikProvider>
-                </Box>
+                <DescriptionForm
+                    description={description}
+                    handleChangeDescription={handleChangeDescription}
+                  />
+                
+                <Box sx={{ mt: 4}} />
+                  <TasksForm />
+                  <TasksTodoList tasks={tasks} />
             </CardModal>
         </Dialog >
     )

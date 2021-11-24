@@ -24,19 +24,60 @@ const CustomAddCardLink =  ({onClick, t}) => {
 
 const styles = {
   backgroundColor: '#fff',
-  minHeight: '100%',
   fontFamily:'Public Sans, sans-serif',
+  overflowY: 'auto',
+  height:'100%'
 }
 
 export default function TasksBoard() {
   const [open, setOpen] = React.useState(false);
   const [currentCard, setCurrentCard] = React.useState({tasks: [], title: ''});
+  
+  const [datas, setDatas] = React.useState(tasksData);
+  
+  const handleChangeData = (change)=>{
+   console.log('handleChangeData')
+  }
+
+  const handleChangeCard =  (newCard)=>{
+
+     let newLanes = tasksData.lanes.map((lane=>{
+       lane.cards = lane.cards.map(card=>{ 
+        if(card.id === newCard.id){
+          return newCard
+        } else {
+          return card
+        }
+      })
+      console.log(lane)
+      return lane
+    }))
+    const newTasksData = {
+      ...tasksData,
+      lanes: newLanes
+      
+    }
+  
+    setDatas(newTasksData);
+  }
+  const handleChangeDescription = (newDescription)=>{
+    const cardChanged = {
+      ...currentCard,
+      description: newDescription,
+      
+    }
+  
+    handleChangeCard(cardChanged);    
+  }
+
   const handleClose = () => {
     setOpen(false);
   };
+  
   const handleToggle = () => {
     setOpen(!open);
   };
+
   const handleCardClick = async (cardId)=>{
     let card; 
    await tasksData.lanes.forEach((lane=>{
@@ -58,7 +99,7 @@ export default function TasksBoard() {
         <Grid container sx={{ pt: 5 }} spacing={3}>
           <Board 
             draggable={true}
-            data={tasksData}
+            data={datas}
             editable={true}
             style={styles}
             components={{
@@ -73,7 +114,8 @@ export default function TasksBoard() {
           handleClose={handleClose}
           handleToggle={handleToggle}
           open={open}
-          card={currentCard} />
+          card={currentCard}
+          handleChangeDescription={handleChangeDescription}/>
       </Container>
     </Page>
   );
