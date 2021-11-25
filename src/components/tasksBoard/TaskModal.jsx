@@ -6,7 +6,7 @@ import DescriptionForm from './DescriptionForm';
 import TasksForm from './TasksForm';
 import TasksTodoList from './TasksTodoList';
 import TitleForm from './TitleForm';
-import SessitionsSelect from './SessitionsSelect';
+import SessionsSelect from './SessionsSelect';
 
 const CardModal = styled(Card)(({theme}) => ({
     fontSize: 12,
@@ -63,7 +63,7 @@ export default function TaskModal({card,handleAddTask,handleClose,handleChangeTi
                     description={description}
                     handleChangeDescription={handleChangeDescription}
                   />
-                <SessitionsSelect />
+                <SessionsSelect />
                   <TasksForm handleAddTask={handleChangeTask}/>
                   <TasksTodoList tasks={tasks} />
             </CardModal>

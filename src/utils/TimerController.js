@@ -1,7 +1,7 @@
 export default class TimerController {
     constructor(){
         this.setup = {
-            POMODORO: 20,
+            POMODORO: 25,
             SHORT_BREAK: 5,
             LONG_BREAK: 10
         }

@@ -15,9 +15,7 @@ const RootStyled = styled(Card)(({theme}) => ({
     borderRadius: theme.shape.borderRadiusSm,
     boxShadow: theme.customShadows.z20,
     margin: '0 auto',
-    width: theme.breakpoints.values.sm,
     border:`${theme.spacing(0.2)} solid ${grey[300]}`
-    
  }));
 
 export default function TodoList({tasks,handleChangeTask}) {

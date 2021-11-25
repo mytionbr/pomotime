@@ -50,9 +50,11 @@ function TaskItem({ task, checked, formik, ...other }) {
 
 export default function TasksTodoList({ tasks }) {
   const tasksChecked = tasks ? tasks.filter(task => task.done) : []
+  const tasksCheckedId = tasksChecked.length > 0 ?  tasksChecked.map(task => task.id) : []
+  
   const formik = useFormik({
     initialValues: {
-      checked: [...tasksChecked]
+      checked: [...tasksCheckedId]
     },
     onSubmit: (values) => {
       console.log(values);

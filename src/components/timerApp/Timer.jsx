@@ -57,7 +57,7 @@ let timerController = new TimerController()
 
 const getDate = () =>{
     const date = new Date()
-    date.setSeconds(date.getSeconds() + timerController.getCurrentTime() * 1)
+    date.setSeconds(date.getSeconds() + timerController.getCurrentTime() * 60)
     return date
 }
 
