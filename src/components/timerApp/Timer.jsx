@@ -2,7 +2,7 @@ import { alpha, styled } from '@mui/material/styles';
 import { Box, Button, Card, Typography, useTheme } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { grey } from '@mui/material/colors';
-import TimerController from '../utils/TimerController'
+import TimerController from '../../utils/TimerController'
 import { useTimer } from 'react-timer-hook';
 
 const RootCard = styled(Card)(({theme}) => ({
@@ -11,10 +11,11 @@ const RootCard = styled(Card)(({theme}) => ({
     justifyContent:'center',
     alignItens: 'center',
     padding: '1rem',
-    width: '50rem',
+    width: theme.breakpoints.values.md,
     height: '20rem',
     margin: '0 auto',
     borderRadius: theme.shape.borderRadiusMd,
+
 }));
 
 const ActionButton = styled(Button)(({theme}) => ({
@@ -119,9 +120,6 @@ export default function Timer() {
 
         return style;
     }
-
-
-    console.log(theme.customShadows.pomodoro)
 
     const handleStart = ()=>{
         resume();

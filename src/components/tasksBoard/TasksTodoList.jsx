@@ -22,11 +22,17 @@ function TaskItem({ task, checked, formik, ...other }) {
             value={id}
             checked={checked}
             {...other}
+            sx={{
+              "&>*":{
+                fontSize: '1.8rem'
+              }
+            }}
+
           />
         }
         label={
           <Typography
-            variant="body2"
+            variant="body1"
             sx={{
               ...(checked && {
                 color: "text.disabled",

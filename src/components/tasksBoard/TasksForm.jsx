@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Icon } from '@iconify/react';
-import { Button,  IconButton, OutlinedInput, Toolbar } from '@mui/material';
+import { Button,  IconButton, OutlinedInput, TextField, Toolbar } from '@mui/material';
 import React from 'react'
 import plusFill from '@iconify/icons-eva/plus-fill';
 const RootStyle = styled(Toolbar)(({ theme }) => ({
@@ -11,17 +11,8 @@ const RootStyle = styled(Toolbar)(({ theme }) => ({
   
   }));
 
-  const InputStyle = styled(OutlinedInput)(({ theme }) => ({
+  const InputStyle = styled(TextField)(({ theme }) => ({
     width: '90%',
-    transition: theme.transitions.create(["box-shadow"], {
-      easing: theme.transitions.easing.easeInOut,
-      duration: theme.transitions.duration.shorter,
-    }),
-    "&.Mui-focused": {  boxShadow: theme.customShadows.z8 },
-    "& fieldset": {
-      borderWidth: `1px !important`,
-      borderColor: `${theme.palette.grey[500_32]} !important`,
-    },
   }));
 
   const ButtonSave = styled(IconButton)(({ theme }) => ({
@@ -53,8 +44,10 @@ export default function TasksForm({handleAddTask}) {
         <RootStyle>
             <InputStyle
                 placeholder='Digite uma tarefa'
+                label='Digite uma tarefa'
                 value={value}
                 onChange={handleChangeText}
+                variant='outlined'
             />
            <ButtonSave
             onClick={handleSave}

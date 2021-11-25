@@ -1,23 +1,15 @@
 import styled from '@emotion/styled';
-import { OutlinedInput, Toolbar } from '@mui/material';
+import { OutlinedInput, TextField, Toolbar } from '@mui/material';
 import React from 'react'
 
 const RootStyle = styled(Toolbar)(({ theme }) => ({
     padding: 10
   }));
   
-  const InputStyle = styled(OutlinedInput)(({ theme }) => ({
+  const InputStyle = styled(TextField)(({ theme }) => ({
     width: '100%',
-  transition: theme.transitions.create(['box-shadow'], {
-    easing: theme.transitions.easing.easeInOut,
-    duration: theme.transitions.duration.shorter
-  }),
-  '&.Mui-focused': {  boxShadow: theme.customShadows.z8 },
-  '& fieldset': {
-    borderWidth: `1px !important`,
-    borderColor: `${theme.palette.grey[500_32]} !important`
-  }
   }));
+
 
 export default function TitleForm({title, handleChangeTitle}) {
     
@@ -35,6 +27,8 @@ export default function TitleForm({title, handleChangeTitle}) {
                 value={value}
                 onChange={handleChange}
                 placeholder='Titulo..'
+                variant='outlined'
+                label='Titulo'
             />
         </RootStyle>
     )

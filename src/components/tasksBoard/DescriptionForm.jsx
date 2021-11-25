@@ -1,5 +1,5 @@
 
-import { Button, OutlinedInput, Toolbar } from "@mui/material";
+import { Button, CardHeader, OutlinedInput, TextField, Toolbar } from "@mui/material";
 import { styled } from "@mui/system";
 import React from "react";
 
@@ -9,18 +9,8 @@ const RootStyle = styled(Toolbar)(({ theme }) => ({
   justifyContent: "space-between",
   alignItems: 'flex-end'
 }));
-
-const TextAreaStyle = styled(OutlinedInput)(({ theme }) => ({
+const InputStyle = styled(TextField)(({ theme }) => ({
   width: '100%',
-  transition: theme.transitions.create(["box-shadow"], {
-    easing: theme.transitions.easing.easeInOut,
-    duration: theme.transitions.duration.shorter,
-  }),
-  "&.Mui-focused": {  boxShadow: theme.customShadows.z8 },
-  "& fieldset": {
-    borderWidth: `1px !important`,
-    borderColor: `${theme.palette.grey[500_32]} !important`,
-  },
 }));
 
 export default function DescriptionForm({description,handleChangeDescription, onSave}) {
@@ -41,11 +31,12 @@ export default function DescriptionForm({description,handleChangeDescription, on
   return (
     <>
       <RootStyle>
-        <TextAreaStyle
+        <InputStyle
             value={value}
             onChange={handleChange}
             placeholder="Descrição..."
             multiline
+            label="Descrição"
             rows={4}
         />
         {

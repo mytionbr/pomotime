@@ -1,4 +1,4 @@
-import { Backdrop, Card, CardContent, CardHeader, Checkbox, Dialog, FormControlLabel, Paper, Stack, Typography } from '@mui/material';
+import { Backdrop, Card, CardContent, CardHeader, Checkbox, Dialog, Divider, FormControlLabel, Paper, Stack, Typography } from '@mui/material';
 import { Box, styled } from '@mui/system';
 import React from 'react'
 import { Form, FormikProvider, useFormik } from 'formik';
@@ -12,7 +12,6 @@ const CardModal = styled(Card)(({theme}) => ({
     borderRadius: theme.shape.borderRadiusSm,
     width: theme.breakpoints.values.sm,
     overflowY: 'auto',
-    padding: '10px 0'
   }));
 
   
@@ -54,6 +53,10 @@ export default function TaskModal({card,handleAddTask,handleClose,handleChangeTi
             onClose={handleClose}
       >
             <CardModal>
+              <CardHeader 
+                title='Tarefa'
+              />
+              <Divider sx={{mb: 1}} />
                <TitleForm title={title} handleChangeTitle={handleChangeTitle} />
                 <DescriptionForm
                     description={description}
