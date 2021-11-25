@@ -64,7 +64,6 @@ export default function TasksBoard() {
   }
 
   const onCardAdd = (card, laneId)=>{
-    console.log(card)
     card.title = 'esú'
   }
 
@@ -100,7 +99,7 @@ export default function TasksBoard() {
   }
 
   const handleCardClick = async (cardId)=>{
-    console.log(cardId)
+    
     let card; 
    await data.lanes.forEach((lane=>{
       let aux =  lane.cards.find(card=> String(card.id) === String(cardId))
@@ -108,13 +107,12 @@ export default function TasksBoard() {
         card = aux
       }
     }))
-    console.log(card)
     setCurrentCard(card);
     handleToggle()
   }
 
   return (
-    <Page title="Dashboard | Pomotime">
+    <Page title="Tarefas | Pomotime">
       <Container maxWidth="xl">
       <Box sx={{ pb: 3 }}>
           <Typography variant="h4">Tarefas</Typography>
