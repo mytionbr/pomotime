@@ -13,7 +13,7 @@ export default function Statistics() {
         <Box sx={{ pb: 3 }}>
           <Typography variant="h4">Estatísticas</Typography>
         </Box>
-        <Grid container sx={{ pt: 5, width: "100%" }} spacing={4}>
+        <Grid container sx={{ pt: 5 }} spacing={3}>
           <Grid item xs={12} md={6} lg={4}>
             <TotalTimer />
           </Grid>

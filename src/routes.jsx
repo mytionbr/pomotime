@@ -4,6 +4,7 @@ import DashboardApp from './pages/TimerApp';
 import TasksBoard from './pages/TasksBoard';
 import TimerApp from './pages/TimerApp';
 import Statistics from './pages/Statistics';
+import Settings from './pages/Settings';
 
 
 export default function Router() {
@@ -16,7 +17,7 @@ export default function Router() {
               { path: 'pomodoro', element: <TimerApp /> },
               { path: 'tasks', element: <TasksBoard /> },
               { path: 'statistics',element: <Statistics/>},
-              { path: 'settings',element:  <Navigate to="/app/pomodoro" /> },
+              { path: 'settings',element:  <Settings /> },
               { path: 'profile',element:  <Navigate to="/app/pomodoro" /> },
             ]
           },

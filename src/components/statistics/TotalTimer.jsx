@@ -46,10 +46,10 @@ function SiteItem({ item }) {
   
     return (
       <Grid item xs={6}>
-        <Paper variant="outlined" sx={{ py: 2.5, textAlign: 'center' }}>
+        <Paper variant="outlined" sx={{ py: 2.5,px: 1.5, textAlign: 'center' }}>
           <Box sx={{ mb: 0.5 }}>{icon}</Box>
-          <Typography variant="h6">{value}</Typography>
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+          <Typography variant="subtitle1">{value}</Typography>
+          <Typography variant="body2" sx={{ color: 'text.secondary',textAlign: 'center' }}>
             {title}
           </Typography>
         </Paper>

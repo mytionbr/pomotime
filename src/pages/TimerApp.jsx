@@ -66,11 +66,11 @@ export default function TimerApp() {
     return (
       <Page title="Timer | Pomotime">
         <Container maxWidth="xl">
-          <Grid container  sx={{ pt: 5, width: '100%' }} spacing={4}>
+          <Grid container  sx={{ pt: 5}} spacing={4}>
             <Grid item sm={12}>
               <Timer />
             </Grid>
-          <Grid container  sx={{ pt: 7, width: '100%' }} spacing={3}>
+          <Grid container  sx={{ pt: 7 }} spacing={3}>
             <Grid item sm={12} md={6}>
                 <TodoList
                   tasks={tasks}
