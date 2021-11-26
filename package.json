@@ -55,6 +55,7 @@
     "react-trello": "^2.2.11",
     "redux": "^4.1.0",
     "redux-thunk": "^2.3.0",
+    "rpg-awesome": "^0.2.0",
     "simplebar": "^5.3.6",
     "simplebar-react": "^2.3.6",
     "web-vitals": "^1.0.1"

@@ -5,6 +5,7 @@ import TasksBoard from './pages/TasksBoard';
 import TimerApp from './pages/TimerApp';
 import Statistics from './pages/Statistics';
 import Settings from './pages/Settings';
+import Profile from './pages/Profile';
 
 
 export default function Router() {
@@ -18,7 +19,7 @@ export default function Router() {
               { path: 'tasks', element: <TasksBoard /> },
               { path: 'statistics',element: <Statistics/>},
               { path: 'settings',element:  <Settings /> },
-              { path: 'profile',element:  <Navigate to="/app/pomodoro" /> },
+              { path: 'profile',element:  <Profile /> },
             ]
           },
           {
