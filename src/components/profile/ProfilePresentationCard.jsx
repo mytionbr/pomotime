@@ -24,8 +24,8 @@ const ItemWrapper = styled("div")(({ theme }) => ({
 const ItemFooter = ({ title, value }) => {
   return (
     <ItemWrapper>
-      <Typography variant="subtitle2" sx={{color: grey[600], fontWeight: 400}}>{title}</Typography>
-      <Typography variant="body2" sx={{fontWeight: 700}}>{value}</Typography>
+      <Typography variant="subtitle1" sx={{color: grey[600], fontWeight: 400}}>{title}</Typography>
+      <Typography variant="body1" sx={{fontWeight: 700}}>{value}</Typography>
     </ItemWrapper>
   );
 };

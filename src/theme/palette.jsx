@@ -81,7 +81,8 @@ const TOPICS = {
   tasks: SUCCESS.main,
   done: ERROR.main,
   longBreak: WARNING.main,
-  hourTotal: PRIMARY.main
+  hourTotal: PRIMARY.main,
+  white: '#fff'
 }
 
 const SESSIONS ={

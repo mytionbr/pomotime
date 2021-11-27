@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
 import MenuPopover from "../../components/MenuPopover";
 import { Box } from "@mui/system";
+import { grey } from "@mui/material/colors";
 
 const ItemWrap = styled(IconButton)(({ theme }) => ({
   display: 'flex',
@@ -40,18 +41,24 @@ export default function TopicPopover({icon,total,description,name,color}) {
         onClick={handleOpen}
         sx={{
           color: (theme)=> theme.palette.topics[color],
+          "&>*":{
+            marginRight: 1
+          },
           ...(open && {
             bgcolor: (theme) =>
               alpha(
                 theme.palette.topics[color],
                 theme.palette.action.focusOpacity
               ),
-          }),
+            }),
         }}
       >
         
-          <Icon icon={icon} />
-        
+          {icon}
+          <Typography variant="h6" sx={{color: grey[600]}}>
+            {total}
+          </Typography>
+          
         </ItemWrap>
       <MenuPopover
         open={open}
@@ -61,9 +68,9 @@ export default function TopicPopover({icon,total,description,name,color}) {
       >
         <Box sx={{ display: "flex", alignItems: "center", py: 2, px: 2.5 }}>
           <Box sx={{ flexGrow: 1 }}>
-            <Typography variant="subtitle1">{description[0].toUpperCase() + description.slice(1,description.length)}</Typography>
+            <Typography variant="subtitle1">{name[0].toUpperCase() + name.slice(1,name.length)}</Typography>
             <Typography variant="body2" sx={{ color: "text.secondary" }}>
-              Você fez um total de {totalContent} {name}
+              {description}
             </Typography>
           </Box>
         </Box>
