@@ -6,6 +6,7 @@ import TimerApp from './pages/TimerApp';
 import Statistics from './pages/Statistics';
 import Settings from './pages/Settings';
 import Profile from './pages/Profile';
+import Achievements from './pages/Achievements';
 
 
 export default function Router() {
@@ -18,6 +19,7 @@ export default function Router() {
               { path: 'pomodoro', element: <TimerApp /> },
               { path: 'tasks', element: <TasksBoard /> },
               { path: 'statistics',element: <Statistics/>},
+              { path: 'achievements',element: <Achievements/>},
               { path: 'settings',element:  <Settings /> },
               { path: 'profile',element:  <Profile /> },
             ]

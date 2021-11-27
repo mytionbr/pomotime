@@ -2,9 +2,10 @@ import { alpha } from '@mui/material/styles';
 
 // ----------------------------------------------------------------------
 
-function createGradient(color1, color2) {
-  return `linear-gradient(to bottom, ${color1}, ${color2})`;
+function createGradient(color1, color2,color3) {
+  return `linear-gradient(to right, ${color1}, ${color2})`;
 }
+
 
 // SETUP COLORS
 const GREY = {
@@ -29,7 +30,7 @@ const GREY = {
 };
 
 const PRIMARY = {
-  lighter: '#B75CFF',
+  lighter: '#D7A1F9',
   light: '#A32EFF',
   main: '#8F00FF',
   dark: '#7500D1',
@@ -82,13 +83,29 @@ const TOPICS = {
   done: ERROR.main,
   longBreak: WARNING.main,
   hourTotal: PRIMARY.main,
-  white: '#fff'
+  shortBreak: INFO.main,
+  white: '#fff',
+  rose: '#FF007F',
+  royal:'#4169E1',
+  spearmint:'#45B08C',
+  orange:'#FFAE42',
+  salmon: '#DB1D08',
+  silver: '#7B7B7B',
 }
 
-const SESSIONS ={
-  pomodoro: ERROR.main,
-  shortBreak: SUCCESS.main,
-  longBreak: PRIMARY.main
+const TOPICS_LIGHT = {
+  tasks: SUCCESS.lighter,
+  done: ERROR.lighter,
+  longBreak: WARNING.lighter,
+  hourTotal: PRIMARY.lighter,
+  shortBreak: INFO.lighter,
+  white: '#fff',
+  rose: '#FF8AC4',
+  royal:'#B8C7F4',
+  spearmint:'#A4DBC8',
+  orange:'#FFE9CC',
+  salmon: '#FA8072',
+  silver: '#C0C0C0',
 }
 
 const GRADIENTS = {
@@ -106,6 +123,13 @@ const CHART_COLORS = {
   yellow: ['#FFE700', '#FFEF5A', '#FFF7AE', '#FFF3D6'],
   red: ['#FF6C40', '#FF8F6D', '#FFBD98', '#FFF2D4']
 };
+
+const SESSIONS ={
+  pomodoro: '#c30232',
+  shortBreak: '#02c333',
+  longBreak: '#0293c3'
+}
+
 
 const palette = {
   common: { black: '#000', white: '#fff' },
@@ -132,6 +156,7 @@ const palette = {
     disabledOpacity: 0.48
   },
   topics: TOPICS,
+  topicsLight:TOPICS_LIGHT,
   sessions: SESSIONS,
   currentSession: SESSIONS.pomodoro
 };

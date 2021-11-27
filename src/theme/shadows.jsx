@@ -52,9 +52,9 @@ const createCustomShadow = (color) => {
     success: `0 8px 16px 0 ${alpha(palette.success.main, 0.24)}`,
     warning: `0 8px 16px 0 ${alpha(palette.warning.main, 0.24)}`,
     error: `0 8px 16px 0 ${alpha(palette.error.main, 0.24)}`,
-    pomodoro: `0 0 2px 0 ${palette.error.main}, 0 20px 40px -4px ${palette.error.main}`,
-    longBreak: `0 0 2px 0 ${palette.primary.main}, 0 20px 40px -4px ${palette.primary.main}`,
-    shortBreak: `0 0 2px 0 ${palette.success.main}, 0 20px 40px -4px ${palette.success.main}`,
+    pomodoro: `0 0 2px 0 ${palette.sessions.pomodoro}, 0 20px 40px -4px ${palette.sessions.pomodoro}`,
+    shortBreak: `0 0 2px 0 ${palette.sessions.shortBreak}, 0 20px 40px -4px ${palette.sessions.shortBreak}`,
+    longBreak: `0 0 2px 0 ${palette.sessions.longBreak}, 0 20px 40px -4px ${palette.sessions.longBreak}`,
   };
 };
 

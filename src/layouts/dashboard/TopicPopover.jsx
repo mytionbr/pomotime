@@ -11,6 +11,7 @@ const ItemWrap = styled(IconButton)(({ theme }) => ({
   fontSize: "2rem",
   alignItems:'center',
   borderRadius: theme.shape.borderRadiusMd,
+  justifyContent: 'center',
   "& > *":{
     fontWeight: 700
   }

@@ -57,7 +57,7 @@ let timerController = new TimerController()
 
 const getDate = () =>{
     const date = new Date()
-    date.setSeconds(date.getSeconds() + timerController.getCurrentTime() * 60)
+    date.setSeconds(date.getSeconds() + timerController.getCurrentTime() * 1)
     return date
 }
 
@@ -105,7 +105,8 @@ export default function Timer() {
                 
             case timerController.sessions.SHORT_BREAK:
                 style.bgColor = theme.palette.sessions.shortBreak;
-                style.shadow = theme.customShadows.shortBreak
+                style.shadow = theme.customShadows.shortBreak;
+                style.text = theme.palette.error.main;
                 break;
                 
             case timerController.sessions.LONG_BREAK:

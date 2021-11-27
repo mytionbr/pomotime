@@ -4,6 +4,7 @@ import checkmarkSquareOutline from '@iconify/icons-eva/checkmark-square-outline'
 import settings2Fill from '@iconify/icons-eva/settings-2-fill';
 import clockFill from '@iconify/icons-eva/clock-fill';
 import personFill from '@iconify/icons-eva/person-fill';
+import trophy from '@iconify/icons-ant-design/trophy-filled';
 
 // ----------------------------------------------------------------------
 
@@ -24,6 +25,11 @@ const sidebarConfig = [
     title: 'Estatísticas',
     path: '/app/statistics',
     icon: getIcon(pieChart2Fill)
+  },
+  {
+    title: 'Conquistas',
+    path: '/app/achievements',
+    icon: getIcon(trophy)
   },
   {
     title: 'Configurações',
